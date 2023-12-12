@@ -85,3 +85,9 @@ I will create another file, say `chapter4.txt` to demonstrate the value of `.git
 
 Github has a very interesting repo called "gitignore" with many example templates of gitignore files.
 
+```shell
+git add .
+git status
+git push -u origin main
+```
+
