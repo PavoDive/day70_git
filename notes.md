@@ -91,3 +91,34 @@ git status
 git push -u origin main
 ```
 
+## Cloning
+
+We may want to clone a pice of open software for different reasons: modify the software, enhance it or customize it, etc.
+
+```shell
+git clone http://url.of/the/repo 
+```
+
+## Branching
+
+Sometimes we are working on features or bug fixes that may break our code, therefore we don't want to do it in the main branch, lest we break everything. We may have one or multiple branches, in which we develop a feature, and only merge it with the main branch once we're confident that it works and doesn't break anything.
+
+In order to display what branches there are:
+
+```shell
+git branch 
+```
+
+If I want to create a new branch:
+
+```shell
+git branch alien-plot 
+```
+
+If I want to switch to a specific branch:
+
+```shell
+git checkout alien-plot
+```
+
+Once switched to the new (or specific branch), I can start making modifications to the files.
