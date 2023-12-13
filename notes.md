@@ -122,3 +122,64 @@ git checkout alien-plot
 ```
 
 Once switched to the new (or specific branch), I can start making modifications to the files.
+
+In order to merge a branch, I have to switch to the main (or target branch)
+
+```shell
+git checkout main
+git merge alien-plot
+```
+
+## Cherry-picking, rebasing and othr stuff
+
+[https://learngitbranching.js.org/](https://learngitbranching.js.org/)
+
+**REBASING** is an additional form of combining work between branches.  I essentially moves a branch _in front_ of another.
+
+```shell
+git branch xyz
+git checkout xyz
+git commit -m "this commits into xyz branch"
+git checkout main
+git commit -m "this one commits to main"
+git checkout xyz
+git rebase main
+```
+
+The last line moves the xyz commit beyond the last main commit.
+
+**HEAD**: is the name of the currently checked out commit: the commit I'm working on.
+It's possible to detach head from a branch, and attach it to a commit.
+
+```shell
+git checkout HASH-OF-COMMIT 
+```
+
+**RELATIVE REFERENCES**: it's better to use relative references than long hashes.
+
+- `^` moves upward one commit. saying `main^` is equivalent to say "the first parent of main". `main^^` is the "second parent (grandparent) of main".
+- `~4` moves upward 4 commits
+
+```shell
+git checkout HEAD^ 
+```
+
+## Reversing changes
+
+`git reset` moves back in history, as if the commit did never occur.
+
+```shell
+git reset HEAD~1 
+```
+
+`git revert` works differently as other people may be working on previous commits, so I can't simply reset them:
+
+```shell
+git revert HEAD 
+```
+
+actually creates a new commit that happens to reverse the changes in the previous one.
+
+## Forking and pull-requests
+
+ forking repos and doing pull requests.
